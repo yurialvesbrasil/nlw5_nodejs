@@ -1,0 +1,27 @@
+{
+	"info": {
+		"_postman_id": "6a3fd59a-0c37-4efd-bad2-4c3f4ae0b6a0",
+		"name": "NLW5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateUsers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3333/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

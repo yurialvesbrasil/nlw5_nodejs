@@ -1,0 +1,27 @@
+NodeJS
+----------------------------------
+Iniciar novo projeto nodejs:
+$> yarn init -y
+
+Instalação do expressjs
+$> yarn add express
+
+Instalar tipagens do express em ambiente de desenvolvimento
+$> yarn add  @types/express -D
+
+Instalar typescript  em ambiente de desenvolvimento
+$> yarn add typescript -D
+
+Criar arquivo de configuração do typescript
+$> yarn tsc --init
+
+Instalação do tradutor para node entende ts
+$> yarn add ts-node-dev -D
+
+Criar script em package.json para rodar o projeto
+"scripts": {
+    "dev": "ts-node-dev src/server.ts"
+  },
+
+Rodando o projeto
+$> yarn dev
