@@ -1,0 +1,52 @@
+Fonte Knexjs: http://knexjs.org/
+Fonte Sequelize: https://sequelize.org/master/
+Fonte typeorm: https://typeorm.io/#/
+
+Instalação do Typeorm:
+---------------------------
+$> yarn add typeorm
+
+Instalação de bibliotecas de apoio
+------------------------------------
+$> yarn add reflect-metadata
+
+Instalação do SQLite
+------------------------------------
+$> yarn add sqlite3
+
+Criar arquivo para armazenar 
+configurações do banco de dados na
+raiz do projeto.
+------------------------------------
+$> ormconfig.json
+
+Cria pasta de database
+-----------------------------------
+$> src/database
+
+Criando um migration
+-----------------------------------
+$> yarn typeorm migration:create -n CreateConections
+
+Para rodar as migrations
+----------------------------------
+$> yarn typeorm migration:run
+
+Para desfazer alterações das migrations no banco
+----------------------------------
+$> yarn typeorm migration:revert
+
+Configurações do tsconfig.ts
+--------------------------------
+"experimentalDecorators": true, 
+"emitDecoratorMetadata": true,  
+
+Adiconar biblioteca de geração de id unicos
+-------------------------------------------
+$> yarn add uuid
+$> yarn add @types/uuid -D
+
+
+Timer UTC
+------------------------------
+https://time.is/pt/UTC

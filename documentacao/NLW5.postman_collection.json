@@ -22,6 +22,33 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "CreateSettings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"chat\": true,\r\n    \"username\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/settings",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"settings"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
