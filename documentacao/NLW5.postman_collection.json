@@ -10,6 +10,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"yurihotmail@hotmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3333/users",
 					"host": [
@@ -45,6 +54,59 @@
 					"port": "3333",
 					"path": [
 						"settings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateMessage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"Ola tudo bem?\",\r\n    \"user_id\": \"beb33b9f-d81c-4022-8177-38fab9ae3108\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/messages",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListMessagesByUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3333/messages/user/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"messages",
+						"user",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "beb33b9f-d81c-4022-8177-38fab9ae3108"
+						}
 					]
 				}
 			},
