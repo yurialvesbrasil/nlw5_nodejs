@@ -111,6 +111,34 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "UpdateSettings",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"chat\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/settings/admin",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"settings",
+						"admin"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

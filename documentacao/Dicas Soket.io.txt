@@ -1,0 +1,16 @@
+Instalação do https://www.npmjs.com/package/@types/socket.io
+----------------------------------------
+$> yarn add socket.io
+
+Instalação das tipagens do socket.io
+--------------------------
+$> yarn add @types/socket.io -D
+
+Para a pasta publica
+-------------------------
+$> yarn add ejs
+
+
+Instalação do socket-cliente
+------------------------------
+$> yarn add socket.io-client
