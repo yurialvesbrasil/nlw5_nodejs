@@ -5,6 +5,7 @@ let connectionsUsers = [];
 socket.on("admin_list_all_users", (connections) => {
     connectionsUsers = connections;
     document.getElementById("list_users").innerHTML = "";
+
     let template = document.getElementById("template").innerHTML;
 
     connections.forEach(connection => {
@@ -15,12 +16,16 @@ socket.on("admin_list_all_users", (connections) => {
 
         document.getElementById("list_users").innerHTML += rendered;
     });
-})
+});
 
 //Função para apresentar o chat com o usuário
 function call(id){
-    const connection = connectionsUsers.find(connection => connection.socket_id === id);
-    const template = document.getElementById("admin_template").innerHTML;
+    const connection = connectionsUsers.find(
+      connection => connection.socket_id === id
+    );
+
+    const template = document.getElementById("message-admin-template").innerHTML;
+    
     const rendered = Mustache.render(template, {
         email: connection.user.email,
         id: connection.user_id
@@ -33,8 +38,8 @@ function call(id){
     }
 
     socket.emit("admin_user_in_support", params);
-    
-    socket.emit("admin_list_messages_by_user", params, messages => {
+
+    socket.emit("admin_list_messages_by_user", params, (messages) => {
         const divMessages = document.getElementById(
             `allMessages${connection.user_id}`
           );
@@ -60,7 +65,7 @@ function call(id){
       
             divMessages.appendChild(createDiv);
           });
-    })
+    });
 }
 
 //Função para enviar mensagem do administrado para o usuário

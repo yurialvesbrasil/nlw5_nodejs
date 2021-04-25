@@ -15,7 +15,6 @@ io.on("connect", (socket) => {
 
         const userExists = await usersService.findByEmail(email);
 
-        
         //Salvar a conexão com o socket_id, user_id 
         if(!userExists){
             const user = await usersService.create(email);

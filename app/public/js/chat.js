@@ -1,5 +1,5 @@
 let socket_admin_id = null;
-let email = null;
+let emailUser = null;
 let socket = null;
 
 document.querySelector("#start_chat").addEventListener("click", (event) => {
@@ -15,24 +15,26 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
 
     //Recupera informações envidas pelo usuário
     email = document.getElementById("email").value;
+    emailUser = email;
+
     const text = document.getElementById("txt_help").value;
 
-    //Envia variáveis para servidor
-    const params = {
+    socket.on("connect", () => {
+      //Envia variáveis para servidor
+      const params = {
         email,
         text
-    }
-    socket.on("connect", () => {
-        socket.emit("client_first_access", params, (call, err) => {
-            if(err){
-                console.err(err);
-            }else{
-                console.log(call);
-            }
-        });
-    })
+      }
+      socket.emit("client_first_access", params, (call, err) => {
+          if(err){
+              console.err(err);
+          }else{
+              console.log(call);
+          }
+      });
+    });
 
-    socket.on("client_list_all_messages", messages => {
+    socket.on("client_list_all_messages", (messages) => {
         var template_client = document.getElementById("message-user-template").innerHTML;
         var template_admin = document.getElementById("message-admin-template").innerHTML;
 
@@ -52,13 +54,13 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
                 document.getElementById("messages").innerHTML += rendered;
             }
         });
-    })
+    });
 
     //Recebe mensagem do admin
     socket.on("admin_send_to_client", (message) => {
         socket_admin_id = message.socket_id;
     
-        const template_admin = document.getElementById("admin-template").innerHTML;
+        const template_admin = document.getElementById("message-admin-template").innerHTML;
     
         const rendered = Mustache.render(template_admin, {
           message_admin: message.text,
@@ -86,7 +88,7 @@ document
 
     const rendered = Mustache.render(template_client, {
       message: text.value,
-      email,
+      email: emailUser,
     });
 
     document.getElementById("messages").innerHTML += rendered;

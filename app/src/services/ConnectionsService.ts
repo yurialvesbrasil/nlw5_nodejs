@@ -37,7 +37,7 @@ class ConnectionsService {
             socket_id, user_id, admin_id, id  
         });
        
-        await this.connectionsRepository.save(connection);
+         await this.connectionsRepository.save(connection);
 
         return connection;
     }
