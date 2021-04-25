@@ -119,7 +119,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"chat\": false\r\n}",
+					"raw": "{\r\n    \"chat\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -135,6 +135,33 @@
 					"path": [
 						"settings",
 						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateConnection",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"socket_id\":\"sdfsdfsdfsdfsdfsdf\",\r\n   \"user_id\":\"060f0586-395b-479d-aec8-9623d4f24ff4\",\r\n   \"admin_id\":\"sdfsdfsdfsdfsdfsdf\",\r\n   \"id\": \"sefsdfsdfsdf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/connection",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"connection"
 					]
 				}
 			},
