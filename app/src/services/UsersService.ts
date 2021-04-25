@@ -33,7 +33,7 @@ class UsersService{
             email
         })
 
-        //Salva no banco por ainda não existe
+        //Salva no banco pq ainda não existe
         await this.usersRepository.save(newUser); 
 
         return newUser;

@@ -10,12 +10,27 @@ interface IConnectionCreate{
 }
 
 class ConnectionsService {
-    
     private connectionsRepository: Repository<Connection>;
     
     constructor(){
         this.connectionsRepository = getCustomRepository(ConnectionsRepository);
     }
+
+    async findBySocketId(socket_id: string) {
+        const connection = await this.connectionsRepository.findOne({
+            socket_id
+        })
+        return connection;
+    }
+
+    async findAllWithoutAdmin() {
+        const connections = await this.connectionsRepository.find({
+            where: {admin_id: null}, relations: ["user"]
+        })
+
+        return connections;
+    }
+    
 
     async create({ socket_id, user_id, admin_id, id } : IConnectionCreate){
         const connection = this.connectionsRepository.create({
@@ -33,6 +48,14 @@ class ConnectionsService {
         })
 
         return connection;
+    }
+
+    async updateAdminId(user_id: string, admin_id: string){
+        return await this.connectionsRepository
+        .createQueryBuilder()
+        .update(Connection)
+        .set({ admin_id })
+        .where("user_id = :user_id", { user_id }).execute();     
     }
 }
 
